@@ -1,0 +1,44 @@
+[
+  {
+    "image": "https://i.ibb.co.com/C1XHnnK/Career-Coaching.jpg",
+    "name": "Career Coaching",
+    "category": "Coaching",
+    "pricing": "$150",
+    "counselor": "John Doe"
+  },
+  {
+    "image": "https://i.ibb.co.com/h2GP2HG/Resume-Building.jpg",
+    "name": "Resume Building",
+    "category": "Skill Development",
+    "pricing": "$100",
+    "counselor": "Jane Smith"
+  },
+  {
+    "image": "https://i.ibb.co.com/M8t6R4c/Mock-Interview.png",
+    "name": "Mock Interview",
+    "category": "Interview Prep",
+    "pricing": "$120",
+    "counselor": "Robert Brown"
+  },
+  {
+    "image": "https://i.ibb.co.com/86NCQ4g/Job-Search-Assistance.jpg",
+    "name": "Job Search Assistance",
+    "category": "Support",
+    "pricing": "$80",
+    "counselor": "Emily Davis"
+  },
+  {
+    "image": "https://i.ibb.co.com/42WJbQB/Career-Assessment.jpg",
+    "name": "Career Assessment",
+    "category": "Assessment",
+    "pricing": "$200",
+    "counselor": "Michael Lee"
+  },
+  {
+    "image": "https://i.ibb.co.com/tmvFXLg/Goal-Setting-Workshop.jpg",
+    "name": "Goal Setting Workshop",
+    "category": "Workshops",
+    "pricing": "$250",
+    "counselor": "Sarah Wilson"
+  }
+]
