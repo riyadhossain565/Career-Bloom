@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   return (
@@ -6,6 +7,7 @@ const Profile = () => {
       <Helmet>
         <title>My Profile | CareerBloom</title>
       </Helmet>
+      ;
     </div>
   );
 };

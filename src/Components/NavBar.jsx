@@ -1,23 +1,53 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Porvider/AuthProvider";
 
 const NavBar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("User signed out successfully");
+      })
+      .catch((error) => {
+        console.log("ERROR:", error.message);
+      });
+  };
+
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="nav-link hover:underline">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About Us</NavLink>
+        <NavLink to="/about" className="nav-link hover:underline">
+          About Us
+        </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink to="/profile" className="nav-link hover:underline">
+            My Profile
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
   return (
-    <div className="w-5/6 mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="w-5/6 mx-auto ">
+      <div className="navbar">
+        {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <button
+              tabIndex={0}
+              className="btn btn-ghost lg:hidden"
+              aria-label="Menu"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -32,7 +62,7 @@ const NavBar = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </button>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
@@ -44,13 +74,26 @@ const NavBar = () => {
             CareerBloom
           </Link>
         </div>
+
+        {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
         </div>
+
+        {/* Navbar End */}
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
+          {user ? (
+            <>
+              <span className="mr-3 rounded-full">{user.image}</span>
+              <button onClick={handleSignOut} className="btn">
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
