@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Porvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log("ERROR", error.message);
+        setErrorMessage("Invalid email or password.");
       });
   };
 
@@ -28,6 +31,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success("Google sign-in successful!");
         navigate("/");
       })
       .catch((error) => {
@@ -41,6 +45,9 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Login
         </h2>
+        {errorMessage && (
+          <div className="mb-4 text-center text-red-500">{errorMessage}</div>
+        )}
         <form onSubmit={handleSubmit}>
           {/* Email Input */}
           <div className="mb-4">

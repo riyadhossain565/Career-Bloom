@@ -18,7 +18,7 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" className="nav-link hover:underline">
+        <NavLink to="/" className="nav-link hover:underline ">
           Home
         </NavLink>
       </li>
@@ -65,7 +65,7 @@ const NavBar = () => {
             </button>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-black rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -84,7 +84,14 @@ const NavBar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <span className="mr-3 rounded-full">{user.image}</span>
+              <div>
+                <img
+                  className="w-10 h-10 rounded-full mr-2 hover:${}"
+                  title={user.displayName}
+                  src={user.photoURL}
+                  alt=""
+                />
+              </div>
               <button onClick={handleSignOut} className="btn">
                 Sign Out
               </button>
