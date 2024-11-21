@@ -5,7 +5,8 @@ import { AuthContext } from "../Porvider/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, manageProfile } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
@@ -14,7 +15,7 @@ const Register = () => {
     setPasswordError("");
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const photoURL = e.target.photoURL.value;
+    const image = e.target.image.value;
     const password = e.target.password.value;
 
     if (password.length < 6) {
@@ -32,14 +33,12 @@ const Register = () => {
       return;
     }
 
-    console.log(name, email, photoURL, password);
-
     // create user
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
         e.target.reset();
         navigate("/");
+        manageProfile(name, image);
       })
       .catch((error) => {
         console.log("ERROR", error.message);
@@ -49,7 +48,6 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
         navigate("/");
       })
       .catch((error) => {
@@ -103,7 +101,7 @@ const Register = () => {
             </label>
             <input
               type="url"
-              name="photoURL"
+              name="image"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter photo URL"
               required

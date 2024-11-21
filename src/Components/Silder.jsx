@@ -10,7 +10,7 @@ import sliderImg4 from "../assets/slider66.png";
 
 const Slider = () => {
   return (
-    <div className="my-4">
+    <div className="my-4 w-5/6 mx-auto">
       <Swiper
         navigation={true}
         autoplay={{ delay: 3000 }}

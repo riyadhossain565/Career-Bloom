@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.init";
@@ -47,6 +48,13 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const manageProfile = (name, image) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    });
+  };
+
   const authInfo = {
     user,
     loading,
@@ -54,9 +62,8 @@ const AuthProvider = ({ children }) => {
     signInUser,
     signInWithGoogle,
     signOutUser,
+    manageProfile,
   };
-
-  console.log("Auth Context Value:", authInfo);
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

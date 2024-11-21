@@ -7,7 +7,7 @@
     "pricing": "$150",
     "duration": "05-12-24 5:00 PM - 6:00 PM",
     "rating": 4.8,
-    "description": "Personalized one-on-one counseling to identify your career path.",
+    "description": "This personalized one-on-one counseling session is designed to help you identify your ideal career path. Whether you are exploring options or seeking clarity in your career journey, this session offers expert guidance tailored to your individual needs and aspirations.",
     "counselor": "John Doe"
   },
   {
@@ -18,7 +18,7 @@
     "pricing": "$100",
     "duration": "07-12-24 4:00 PM - 5:00 PM",
     "rating": 4.5,
-    "description": "Get a professional review of your resume to stand out to employers.",
+    "description": "Elevate your job application with a professionally reviewed resume. This session provides insights into crafting a standout resume that highlights your achievements, skills, and experiences, helping you leave a lasting impression on potential employers.",
     "counselor": "Jane Smith"
   },
   {
@@ -29,7 +29,7 @@
     "pricing": "$120",
     "duration": "10-12-24 6:00 PM - 7:00 PM",
     "rating": 4.9,
-    "description": "Prepare for your next big interview with our group mock sessions.",
+    "description": "Get ready for your next big interview with our practical group mock interview sessions. Gain confidence, receive constructive feedback, and learn effective strategies to present yourself as a strong candidate in any job interview.",
     "counselor": "Robert Brown"
   },
   {
@@ -40,7 +40,7 @@
     "pricing": "$80",
     "duration": "12-12-24 3:00 PM - 4:30 PM",
     "rating": 4.7,
-    "description": "Learn strategies and tools for an effective job search.",
+    "description": "Discover effective strategies and tools to navigate the job market. This session provides hands-on assistance in identifying opportunities, crafting personalized application materials, and utilizing networking tools to maximize your chances of securing a job.",
     "counselor": "Emily Davis"
   },
   {
@@ -51,7 +51,7 @@
     "pricing": "$200",
     "duration": "15-12-24 10:00 AM - 12:00 PM",
     "rating": 4.6,
-    "description": "Assess your strengths and interests to choose the right career path.",
+    "description": "Dive deep into understanding your strengths, interests, and personality traits through this comprehensive career assessment. This session equips you with insights and data to choose a career path aligned with your unique capabilities and long-term aspirations.",
     "counselor": "Michael Lee"
   },
   {
@@ -62,7 +62,7 @@
     "pricing": "$250",
     "duration": "20-12-24 2:00 PM - 3:00 PM",
     "rating": 4.8,
-    "description": "Interactive workshop to define and achieve your career goals.",
+    "description": "Join an interactive workshop focused on defining and achieving your career goals. Learn actionable strategies for setting realistic objectives, staying motivated, and tracking progress to ensure success in your professional journey.",
     "counselor": "Sarah Wilson"
   }
 ]

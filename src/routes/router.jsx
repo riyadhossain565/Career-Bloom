@@ -5,10 +5,14 @@ import AboutUs from "../pages/AboutUs";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/ServiceDetails";
+import ErrorPage from "../../ErrorPage";
+import Profile from "../pages/Profile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -28,8 +32,16 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
+      {
         path: "/details/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: (
+          <PrivateRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const res = await fetch("../serviceData.json");
           const data = await res.json();

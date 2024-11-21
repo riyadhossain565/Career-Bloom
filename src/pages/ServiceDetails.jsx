@@ -23,9 +23,9 @@ const ServiceDetails = () => {
     }
   };
   return (
-    <div className="p-6">
+    <div className="p-6 w-5/6 mx-auto">
       {/* Service Details */}
-      <div className="md:flex gap-4 bg-white shadow-lg rounded-lg p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white shadow-lg rounded-lg p-6">
         <div>
           <img
             src={image}
@@ -33,7 +33,7 @@ const ServiceDetails = () => {
             className="w-full h-64 object-cover rounded-lg mb-4"
           />
         </div>
-        <div>
+        <div className="col-span-2">
           <h1 className="text-3xl font-bold mb-2">{name}</h1>
           <p className="text-gray-700 mb-2">
             <strong>Category:</strong> {category}
@@ -46,6 +46,9 @@ const ServiceDetails = () => {
           </p>
           <p className="text-gray-700 mb-2">
             <strong>Counselor:</strong> {counselor}
+          </p>
+          <p className="text-gray-700 mb-2">
+            <strong>Rating:</strong> {rating}
           </p>
           <p className="text-gray-700 mb-2">
             <strong>Description:</strong> {description}
