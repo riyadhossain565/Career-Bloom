@@ -5,7 +5,7 @@ const Services = () => {
   const data = useLoaderData();
 
   return (
-    <div className="my-10 w-5/6 mx-auto">
+    <div className="my-10 w-5/6 mx-auto pb-12">
       <h3 className="text-2xl font-bold text-center uppercase">Our Services</h3>
       <h1 className="text-4xl font-bold text-center my-2">
         Empower Your Career Journey <br /> for Greater Success
