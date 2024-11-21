@@ -27,6 +27,11 @@ const NavBar = () => {
           About Us
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/contact" className="nav-link hover:underline">
+          Contact Us
+        </NavLink>
+      </li>
       {user && (
         <li>
           <NavLink to="/profile" className="nav-link hover:underline">

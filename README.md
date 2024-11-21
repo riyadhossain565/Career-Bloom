@@ -1,8 +1,27 @@
-# React + Vite
+# CareerBloom - make your career shine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+live link(https://careerbloom.netlify.app/)
 
-Currently, two official plugins are available:
+## Requirement Document Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://github.com/programming-hero-web-course1/b10-a9-authentication-riyadhossain565
+
+## Features
+
+- **Responsive Design**: Optimized for mobile and desktop screens.
+- **User Authentication**: Register, log in, and update user profiles.
+- **Profile Management**: Users can update their name, photo, and email.
+- **Google Sign-In**: Login or register using Google authentication.
+- **Protected Routes**: Users can access and edit their profiles after logging in.
+- **Contact Us**: A form for users to send inquiries and feedback.
+
+---
+
+## Technologies Used
+
+- **React.js**: JavaScript library for building user interfaces.
+- **Firebase Authentication**: Handles user registration and login.
+- **Tailwind CSS**: For styling the application.
+- **React Router**: Manages navigation and routes.
+
+---

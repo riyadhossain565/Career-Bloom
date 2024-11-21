@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import person1 from "../assets/img (1).jpg";
 import person2 from "../assets/img (2).jpg";
 import person3 from "../assets/img (3).jpg";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -108,12 +109,12 @@ const AboutUs = () => {
             <p className="text-lg text-gray-600 mb-6">
               Get in touch with us and let’s make something great together.
             </p>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>
