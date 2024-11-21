@@ -1,13 +1,47 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../Porvider/AuthProvider";
 
 const Login = () => {
+  const navigete = useNavigate();
+  const { signInUser, signInWithGoogle } = useContext(authContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigete("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error.massage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        navigator("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error.massage);
+      });
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Login
         </h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Email Input */}
           <div className="mb-4">
             <label
@@ -18,7 +52,7 @@ const Login = () => {
             </label>
             <input
               type="email"
-              id="email"
+              name="email"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your email"
               required
@@ -35,7 +69,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              id="password"
+              name="password"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your password"
               required
@@ -55,6 +89,20 @@ const Login = () => {
             Login
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="my-6 flex items-center">
+          <div className="flex-1 h-px bg-gray-300"></div>
+          <span className="px-4 text-md text-gray-500">or</span>
+          <div className="flex-1 h-px bg-gray-300"></div>
+        </div>
+
+        {/* google sign in */}
+        <p className="text-center ">
+          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+            Sign in with Google
+          </button>
+        </p>
 
         {/* Register option */}
         <div className="mt-4 text-center text-sm text-gray-600">

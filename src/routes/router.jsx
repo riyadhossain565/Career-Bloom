@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ServiceDetails from "../pages/ServiceDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/details/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch("../serviceData.json");
+          const data = await res.json();
+
+          const singleData = data.find((d) => d.id == params.id);
+
+          return singleData;
+        },
       },
     ],
   },
