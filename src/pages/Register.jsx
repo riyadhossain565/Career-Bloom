@@ -1,28 +1,55 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { authContext } from "../Porvider/AuthProvider";
+import { AuthContext } from "../Porvider/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser } = useContext(authContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
-
+    setPasswordError("");
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const password = e.target.password.value;
     const photoURL = e.target.photoURL.value;
+    const password = e.target.password.value;
 
-    console.log(name, email, password, photoURL);
+    if (password.length < 6) {
+      setPasswordError("Password must contain at least 6 characters");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      setPasswordError("Passwords must contain at least one lowercase letter");
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      setPasswordError("Passwords must contain at least one uppercase letter");
+      return;
+    }
+
+    console.log(name, email, photoURL, password);
 
     // create user
-    createUser(name, email, password, photoURL)
+    createUser(email, password)
       .then((result) => {
         console.log(result.user);
         e.target.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error.message);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
         navigate("/");
       })
       .catch((error) => {
@@ -103,6 +130,10 @@ const Register = () => {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
+          {/* Password Error Message */}
+          {passwordError && (
+            <div className="text-red-500 text-sm mb-4">{passwordError}</div>
+          )}
 
           {/* Submit Button */}
           <button
@@ -122,7 +153,9 @@ const Register = () => {
 
         {/* google sign up */}
         <p className="text-center ">
-          <button className="btn btn-outline">Sign up with Google</button>
+          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+            Sign up with Google
+          </button>
         </p>
 
         {/* Link to Login Page */}

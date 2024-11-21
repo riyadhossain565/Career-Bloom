@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { authContext } from "../Porvider/AuthProvider";
+import { AuthContext } from "../Porvider/AuthProvider";
 
 const Login = () => {
-  const navigete = useNavigate();
-  const { signInUser, signInWithGoogle } = useContext(authContext);
+  const navigate = useNavigate();
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +17,10 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
-        navigete("/");
+        navigate("/");
       })
       .catch((error) => {
-        console.log("ERROR", error.massage);
+        console.log("ERROR", error.message);
       });
   };
 
@@ -28,10 +28,10 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        navigator("/");
+        navigate("/");
       })
       .catch((error) => {
-        console.log("ERROR", error.massage);
+        console.log("ERROR", error.message);
       });
   };
 
