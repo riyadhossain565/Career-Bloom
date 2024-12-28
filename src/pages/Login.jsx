@@ -18,6 +18,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success("Google sign-in successful!");
         e.target.reset();
         navigate("/");
       })
